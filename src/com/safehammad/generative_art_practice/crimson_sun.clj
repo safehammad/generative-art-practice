@@ -1,7 +1,7 @@
-(ns com.safehammad.generative-art-studies.crimson-sun
+(ns com.safehammad.generative-art-practice.crimson-sun
   (:require [clojure.math :as math :refer [PI sin cos]]
             [clojure.math.combinatorics :as combo]
-            [com.safehammad.generative-art-studies.utils :as utils]
+            [com.safehammad.generative-art-practice.utils :as utils]
             [quil.core :as q]
             [quil.middleware :as m]))
 

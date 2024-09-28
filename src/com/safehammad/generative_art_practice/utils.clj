@@ -1,4 +1,4 @@
-(ns com.safehammad.generative-art-studies.utils
+(ns com.safehammad.generative-art-practice.utils
   (:require [clojure.math :refer [sin cos] :as math]))
 
 (defn halton-at
