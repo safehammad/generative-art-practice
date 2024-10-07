@@ -1,5 +1,6 @@
 (ns com.safehammad.generative-art-practice.utils
-  (:require [clojure.math :refer [sin cos] :as math]))
+  (:require [clojure.math :refer [sin cos] :as math]
+            [quil.core :as q]))
 
 (defn halton-at
   "Calculate the number in the Halton sequence at the given `index` for the given `base`.
@@ -44,3 +45,29 @@
   "Translate polar coordinates (angle in radians, dist from centre) to cartesian (x, y) coordinates."
   [angle dist]
   [(* (cos angle) dist) (* (sin angle) dist)])
+
+(defn create-quad
+  "Create quad as sequence of 2-vector coords centered on `x`, `y` with width `w` and height `h`."
+  [x y w h]
+  (let [half-w (* w 0.5)
+        half-h (* h 0.5)
+        offsets [[-1 -1] [1 -1] [1 1] [-1 1]]]
+    (mapv (fn [[m n]] [(+ x (* m half-w)) (+ y (* n half-h))]) offsets)))
+
+(defn filtered-random-gaussian
+  "Return q/random-gaussian returning only values for which `(pred value)` returns logical `true`."
+  [pred]
+  (loop [result (q/random-gaussian)]
+    (if (pred result)
+      result
+      (recur (q/random-gaussian)))))
+
+(defn capped-random-gaussian
+  "Return q/random-gaussian throwing away any values where (abs value)` is greated than `cap`."
+  [cap]
+  (filtered-random-gaussian #(<= (abs %) cap)))
+
+(defn jitter
+  "Shift x and y in collection of coords by `dist` pixels * random gaussian number capped at +/- 3."
+  [dist coll]
+  (mapv (fn [coord] (mapv #(+ (* dist (capped-random-gaussian 3)) %) coord)) coll))
