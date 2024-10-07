@@ -37,7 +37,7 @@ In September 2024 I attended the amazing [Heart of Clojure](https://2024.heartof
 ### Quad Crystals
 
 ![Quad Crystals](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/quad-crystals.png)
-*8th October 2024*
+*7th October 2024*
 
 ## License
 
