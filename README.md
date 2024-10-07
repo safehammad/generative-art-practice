@@ -34,6 +34,8 @@ In September 2024 I attended the amazing [Heart of Clojure](https://2024.heartof
 ![Crimson Sun](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/crimson-sun.png)
 *27th September 2024*
 
+### Quad Crystals
+
 ![Quad Crystals](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/quad-crystals.png)
 *8th October 2024*
 
