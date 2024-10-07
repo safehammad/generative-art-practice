@@ -141,7 +141,7 @@
   ;; Uncomment the following form to generate PNG. Consider increasing size first (see below).
   #_(q/save-frame "images/crimson-sun.png"))
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
+#_{:clj-kondo/ignore [:unresolved-symbol]}
 (q/defsketch crimson-sun
   :title "Crimson Sun"
   :settings #(q/smooth 8)
