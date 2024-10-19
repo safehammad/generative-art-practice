@@ -2,6 +2,15 @@
   (:require [clojure.math :refer [sin cos] :as math]
             [quil.core :as q]))
 
+(defn append-first
+  "Lazily append the first element of a collection into the collection.
+
+  For example:
+
+  (append-first [1 2 3]) => (1 2 3 1)"
+  [coll]
+  (concat coll [(first coll)]))
+
 (defn halton-at
   "Calculate the number in the Halton sequence at the given `index` for the given `base`.
 
@@ -71,3 +80,15 @@
   "Shift x and y in collection of coords by `dist` pixels * random gaussian number capped at +/- 3."
   [dist coll]
   (mapv (fn [coord] (mapv #(+ (* dist (capped-random-gaussian 3)) %) coord)) coll))
+
+(defn line-coords
+  "Convert a collection of vertices to a collection of vertices suitable for creating a set of lines.
+
+  Note that the final line closes the shape by default or if `close?` is true. For example:
+
+  (line-coords [p1 p2 p3 p4]) => [p1 p2 p2 p3 p3 p4 p4 p1]"
+  ([coll]
+   (line-coords coll true))
+  ([coll close?]
+   (let [points (if close? (append-first coll) coll)]
+     (sequence cat (partition 2 1 points)))))

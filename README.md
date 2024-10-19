@@ -39,6 +39,12 @@ In September 2024 I attended the amazing [Heart of Clojure](https://2024.heartof
 ![Quad Crystals](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/quad-crystals.png)
 *7th October 2024*
 
+### Square Wave
+
+![Square Wave](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/square-wave.png)
+*19th October 2024*
+
+
 ## License
 
 * Code is licenced under the [MIT](https://choosealicense.com/licenses/mit/) licence.
