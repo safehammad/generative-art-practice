@@ -24,7 +24,7 @@
     (utils/jitter jitter (utils/create-quad x y width height))))
 
 (defn next-state []
-  (q/random-seed 13)
+  (q/random-seed 19)
   (for [[m n] (take 95 (utils/halton-coord-seq 2 3))
         :let [[x y] (map #(- (* % 5500) 2750) [m n])  ; Centre about origin
               [width height] (map abs [x y])
@@ -32,12 +32,12 @@
               area (* width height)
               [hue sat] (quadrant-color x y)]
         :when (and (pos? area) (< area 3000000))]  ; Discard largest squares hogging 45 degree diagonals
-    {:stroke [(+ 50 hue (round (* (q/random-gaussian) 40))) 0 100 0.4]
-     :fill [(+ hue (round (* (q/random-gaussian) 60)))  ; hue
+    {:stroke [0 0 85 1]
+     :fill [(+ hue (round (* (q/random-gaussian) 35)))  ; hue
             (* (max m n) sat)                           ; sat
-            (- 100 (* 50 (/ area 4500000)))             ; bri
-            0.35]                                       ; alpha
-     :coords (create-quads x y width height (+ 12 (/ area 350000)) 2)}))
+            (- 100 (* 20 (/ area 4500000)))             ; bri
+            0.35]                                        ; alpha
+     :coords (create-quads x y width height (+ 5 (/ area 150000)) 2)}))
 
 (defn setup []
   (q/color-mode :hsb 360 100 100 1.0)
@@ -56,8 +56,8 @@
     (q/translate (/ (q/width) 2 factor) (/ (q/height) -2 factor)))
 
   ;; Clear
-  (q/background 240 100 30 1)
-  (q/stroke-weight 12)
+  (q/background 240 100 50 1)
+  (q/stroke-weight 14)
 
   ;; Draw quads
   (doseq [{:keys [stroke fill coords]} state]
@@ -80,5 +80,5 @@
   :update update-state
   :middleware [m/fun-mode]
   :size [1000, 1000]
-  ;:size [10000 10000]  ; Use this size when uncommenting "save-frame" (see above) to generate high res image
+  ;:size [3900 3900]  ; Use this size when uncommenting "save-frame" (see above) to generate high res image
   )

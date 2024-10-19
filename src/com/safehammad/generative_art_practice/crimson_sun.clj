@@ -57,10 +57,10 @@
 (defn colour-triangles
   "Apply colour to triangles based on index and distance from centre."
   [triangles]
-  (let [props [[0 750 (fn [dist] [0 100 (+ 30 (int (* (/ dist 4000) 100))) 1])]
-               [750 750 (fn [dist] [210 100 (+ 40 (int (* (/ dist 8000) 100))) 1])]
-               [1500 750 (fn [dist] [0 100 (- 90 (int (* (/ dist 4000) 100))) 1])]
-               [2250 750 (fn [dist] [40 20 (+ 40 (int (* (/ dist 6000) 100))) 1])]]]
+  (let [props [[0 750 (fn [dist] [0 100 (+ 50 (int (* (/ dist 4000) 100))) 1])]
+               [750 750 (fn [dist] [210 100 (+ 60 (int (* (/ dist 8000) 100))) 1])]
+               [1500 750 (fn [dist] [0 100 (- 100 (int (* (/ dist 4000) 100))) 1])]
+               [2250 750 (fn [dist] [40 20 (+ 60 (int (* (/ dist 6000) 100))) 1])]]]
     (sequence cat (for [[from to colour-fn] props]
                     (sequence
                      (comp
@@ -82,9 +82,9 @@
               :colour [hue sat bri (abs (/ x-factor 3))]})))
 
 (defn make-dots []
-  (let [props [[28 790 1 2 [0 0 90 1]]  ; dot-count, dist, start angle, rotation colour
-               [56 1750 3 (/ PI 4) [210 100 90 1]]
-               [48 2695 4 (/ PI 4) [0 100 90 1]]]]
+  (let [props [[28 790 1 2 [0 0 95 1]]  ; dot-count, dist, start angle, rotation colour
+               [56 1750 3 (/ PI 4) [210 100 95 1]]
+               [48 2695 4 (/ PI 4) [0 100 95 1]]]]
     (sequence cat (for [[dot-count dist start-angle rotation colour] props
                         angle (range start-angle (+ start-angle rotation) (/ (* 2 PI) dot-count))
                         :let [angle2 (+ angle PI)
@@ -100,9 +100,9 @@
                                                                         :colour colour})])))))
 
 (defn make-circles []
-  (let [props [[4 200 [0 0 7250 7250] [40 100 70 1]]   ; halton-base, jitter, coords, colour
-               [3 150 [0 0 7050 7050] [15 100 60 1]]
-               [3 150 [0 0 6450 6450] [0 100 50 1]]]]
+  (let [props [[4 200 [0 0 7250 7250] [40 100 85 1]]   ; halton-base, jitter, coords, colour
+               [3 150 [0 0 7050 7050] [15 100 70 1]]
+               [3 150 [0 0 6450 6450] [0 100 60 1]]]]
     (sequence cat (for [[halton-base jitter coords colour] props]
                     (jitter-circle halton-base jitter {:coords coords :colour colour})))))
 
@@ -123,7 +123,7 @@
     (q/translate (/ (q/width) 2 factor) (/ (q/height) -2 factor)))
 
   ;; Clear
-  (q/background 0 90 30 1)
+  (q/background 0 90 40 1)
   (q/no-stroke)
 
   (doseq [{:keys [coords colour]} large-circles]
@@ -150,5 +150,5 @@
   :update update-state
   :middleware [m/fun-mode]
   :size [1000 1000]
-  ;:size [10000 10000]  ; Use this size when uncommenting "save-frame" (see above) to generate high res image
+  ;:size [3900 3900]  ; Use this size when uncommenting "save-frame" (see above) to generate high res image
   )
