@@ -44,6 +44,11 @@ In September 2024 I attended the amazing [Heart of Clojure](https://2024.heartof
 ![Square Wave](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/square-wave.png)
 *19th October 2024*
 
+### Nett
+
+![Nett](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/nett.png)
+*2nd November 2024*
+
 
 ## License
 
