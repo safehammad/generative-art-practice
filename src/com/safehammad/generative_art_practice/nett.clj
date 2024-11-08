@@ -41,7 +41,7 @@
 
 (defn accelerate
   "Adjust velocity (accelerate) dots based on the force applied to it.."
-  [[mx my :as _magnet] dots]
+  [dots [mx my :as _magnet]]
   (for [{:keys [x y vx vy] :as dot} dots
         :let [dx (- mx x)
               dy (- my y)
@@ -74,7 +74,7 @@
         (update :y (partial + vy)))))
 
 (defn next-move [state magnet]
-  (move (drag (accelerate magnet state))))
+  (move (drag (accelerate state magnet))))
 
 (defn random-point []
   (vector (q/random -3600 4000) (q/random -4000 4000)))
