@@ -49,6 +49,10 @@ In September 2024 I attended the amazing [Heart of Clojure](https://2024.heartof
 ![Nett](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/nett.png)
 *2nd November 2024*
 
+### Weave
+
+![Weave](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/weave.png)
+*21st November 2024*
 
 ## License
 
