@@ -76,6 +76,11 @@
   [cap]
   (filtered-random-gaussian #(<= (abs %) cap)))
 
+(defn gaussian-range
+  "Return a random gaussian float where the standard deviation is sd rather than the default 1."
+  [sd]
+  (* (q/random-gaussian) sd))
+
 (defn jitter
   "Shift x and y in collection of coords by `dist` pixels * random gaussian number capped at +/- 3."
   [dist coll]
