@@ -64,6 +64,11 @@ In September 2024 I attended the amazing [Heart of Clojure](https://2024.heartof
 ![Corazón](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/corazon.png)
 *18th October 2025*
 
+### Germ
+
+![Germ](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/germ.png)
+*2nd November 2025*
+
 ## License
 
 * Code is licenced under the [MIT](https://choosealicense.com/licenses/mit/) licence.
