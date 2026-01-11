@@ -81,6 +81,11 @@
   [dist coll]
   (mapv (fn [coord] (mapv #(+ (* dist (capped-random-gaussian 3)) %) coord)) coll))
 
+(defn q-rand-nth
+  "A rand-nth implementation that uses quil random under the covers to respect the random seed."
+  [coll]
+  (nth coll (int (q/random (count coll)))))
+
 (defn line-coords
   "Convert a collection of vertices to a collection of vertices suitable for creating a set of lines.
 

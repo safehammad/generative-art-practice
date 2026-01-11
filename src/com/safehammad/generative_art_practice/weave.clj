@@ -1,7 +1,8 @@
 (ns com.safehammad.generative-art-practice.weave
   (:require [quil.core :as q]
             [quil.middleware :as m]
-            [clojure.math :as math]))
+            [clojure.math :as math]
+            [com.safehammad.generative-art-practice.utils :refer [q-rand-nth]]))
 
 ;; Inspect state used to generate image
 (def debug (atom nil))
@@ -55,11 +56,6 @@
     (and
      (even? (q/round (/ x 350)))
      (even? (q/round (/ y 350))))))
-
-(defn q-rand-nth
-  "A rand-nth implementation that uses quil random under the covers to respects the random seed."
-  [coll]
-  (nth coll (int (q/random (count coll)))))
 
 (defn gaussian-range
   "Return a random gaussian float where the standard deviation is sd rather than the default 1."
