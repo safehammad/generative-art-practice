@@ -82,9 +82,11 @@
   (* (q/random-gaussian) sd))
 
 (defn jitter
-  "Shift x and y in collection of coords by `dist` pixels * random gaussian number capped at +/- 3."
-  [dist coll]
-  (mapv (fn [coord] (mapv #(+ (* dist (capped-random-gaussian 3)) %) coord)) coll))
+  "Shift x and y in `coll` of coords by `dist` pixels * random gaussian number capped at +/- 3 by default."
+  ([dist coll]
+   (jitter dist 3 coll))
+  ([dist gauss-cap coll]
+   (mapv (fn [coord] (mapv #(+ (* dist (capped-random-gaussian gauss-cap)) %) coord)) coll)))
 
 (defn q-rand-nth
   "A rand-nth implementation that uses quil random under the covers to respect the random seed."
