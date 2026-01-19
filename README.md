@@ -74,6 +74,11 @@ In September 2024 I attended the amazing [Heart of Clojure](https://2024.heartof
 ![Spawn](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/spawn.png)
 *2nd December 2025*
 
+### Nest Egg
+
+![Nest Egg](https://raw.githubusercontent.com/safehammad/generative-art-practice/main/images/nest-egg.png)
+*19th January 2026*
+
 ## License
 
 * Code is licenced under the [MIT](https://choosealicense.com/licenses/mit/) licence.
